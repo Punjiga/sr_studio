@@ -123,7 +123,7 @@ function filterVideos(cat) {
 function contactMe() {
     const email = 'stevenrojasrivera182@gmail.com';
     const subject = 'Consulta sobre tu trabajo visual';
-    const body = 'Hola Steven,Me interesa tu trabajo. Quiero saber de...';
+    const body = 'Hola Steven, me interesa tu trabajo, quiero saber de...';
 
     window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
