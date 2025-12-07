@@ -361,12 +361,12 @@ document.addEventListener('DOMContentLoaded', function () {
                     const iframe = facade.querySelector('iframe');
                     let videoId, thumbUrl, ariaLabel;
                     if (codigoIdioma === 'es') {
-                        videoId = 'jOeX9W99U9s';
-                        thumbUrl = 'https://img.youtube.com/vi/jOeX9W99U9s/maxresdefault.jpg';
+                        videoId = 'EVg6SpPAvN4';
+                        thumbUrl = 'https://img.youtube.com/vi/EVg6SpPAvN4/maxresdefault.jpg';
                         ariaLabel = 'Reproducir video';
                     } else {
-                        videoId = 'uHyZ-Y3V898';
-                        thumbUrl = 'https://img.youtube.com/vi/uHyZ-Y3V898/maxresdefault.jpg';
+                        videoId = 'IiTgIV8UyYk';
+                        thumbUrl = 'https://img.youtube.com/vi/IiTgIV8UyYk/maxresdefault.jpg';
                         ariaLabel = 'Play video';
                     }
                     if (iframe) {

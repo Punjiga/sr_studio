@@ -360,7 +360,6 @@ header button:hover {
 }
 
 /* ========================= ESTILOS PORTADOS ========================= */
-
 /* Back Arrow */
 .back-arrow {
     position: absolute;
@@ -382,7 +381,6 @@ header button:hover {
     color: var(--primary-bg);
     transform: scale(1.1);
 }
-
 
 /* Flecha hacia arriba */
 /* Botones flotantes (Go Up y Chat) - Estilo unificado */

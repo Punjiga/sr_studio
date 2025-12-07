@@ -39,7 +39,6 @@
     --color-accent-hover: #F5F5F5;
     --color-border: #404040;
     --color-border-light: #2A2A2A;
-
     /* Tipografía */
     --fuente-h1: 'Unbounded', sans-serif;
     --fuente-h2-h5: 'Work Sans', sans-serif;
@@ -265,8 +264,6 @@ button,
     transform: none;
     box-shadow: none;
 }
-
-
 
 .label {
     position: relative;
@@ -1415,7 +1412,6 @@ footer nav {
         width: 300px;
         height: 300px;
         margin-top: 75px;
-
     }
 
     .sectionProjects h3 {
@@ -1650,7 +1646,6 @@ footer nav {
     #bot-container {
         right: 20px !important;
     }
-
 
     #bot-container {
         bottom: 70px;
