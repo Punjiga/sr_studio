@@ -1,4 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
+    //------------------- PANTALLA DE CARGA --------------------------
+    const pantallaCarga = document.getElementById('pantallaCarga');
+    if (pantallaCarga) {
+        setTimeout(() => {
+            pantallaCarga.classList.add('oculta');
+        }, 1400);
+    }
     //------------------- MENU HAMBURGUESA --------------------------
     const menuToggle = document.getElementById('menu-toggle');
     const menuList = document.getElementById('menu');

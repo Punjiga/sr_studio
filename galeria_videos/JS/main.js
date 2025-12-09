@@ -1,3 +1,11 @@
+// ========================= PANTALLA DE CARGA =========================
+const pantallaCarga = document.getElementById('pantallaCarga');
+if (pantallaCarga) {
+    setTimeout(() => {
+        pantallaCarga.classList.add('oculta');
+    }, 1400);
+}
+
 // ========================= PARTICLES =========================
 if (window.loadParticles) {
     loadParticles("tsparticles");
