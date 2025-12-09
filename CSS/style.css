@@ -73,6 +73,10 @@ body.cambiando-idioma footer {
 }
 
 /* ========================= PANTALLA DE CARGA ========================= */
+body:has(.pantalla-carga:not(.oculta)) {
+    overflow: hidden;
+}
+
 .pantalla-carga {
     position: fixed;
     inset: 0;
@@ -81,6 +85,7 @@ body.cambiando-idioma footer {
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
     transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 

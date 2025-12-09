@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (pantallaCarga) {
         setTimeout(() => {
             pantallaCarga.classList.add('oculta');
-        }, 1400);
+        }, 1600);
     }
     //------------------- MENU HAMBURGUESA --------------------------
     const menuToggle = document.getElementById('menu-toggle');

@@ -3,7 +3,7 @@ const pantallaCarga = document.getElementById('pantallaCarga');
 if (pantallaCarga) {
     setTimeout(() => {
         pantallaCarga.classList.add('oculta');
-    }, 1400);
+    }, 1600);
 }
 
 // ========================= PARTICLES =========================
