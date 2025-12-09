@@ -824,6 +824,16 @@ footer nav ul li a:hover {
     transform: scale(1.12);
 }
 
+.videoFacade iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: inherit;
+}
+
 .btnPlay {
     position: absolute;
     top: 50%;
