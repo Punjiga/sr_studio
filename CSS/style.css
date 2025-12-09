@@ -54,6 +54,11 @@
     scroll-behavior: smooth;
 }
 
+html,
+body {
+    overflow-x: hidden;
+}
+
 body {
     background-color: var(--color-background);
     color: var(--color-text-primary);
@@ -266,7 +271,7 @@ input {
     color: var(--color-text-secondary);
 }
 
-span:not(.bar span):not(.close-menu span):not(.idiomaSwitch span):not(.input-wrapper span):not(.btn span) {
+span:not(.bar span):not(.close-menu span):not(.idiomaSwitch span):not(.input-wrapper span):not(.btn span):not(.carga-texto span) {
     color: var(--color-accent-primary);
     font-weight: 800;
     font-size: 1.05em;
@@ -295,7 +300,7 @@ h5 {
 
 a,
 button,
-span,
+span:not(.carga-texto span),
 label,
 input {
     font-family: var(--fuente-ctas-span);
