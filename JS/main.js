@@ -257,46 +257,9 @@ document.addEventListener('DOMContentLoaded', function () {
         container.innerHTML = `
             <iframe src="https://www.youtube.com/embed/${videoId}?autoplay=1"
                 frameborder="0" allow="autoplay; encrypted-media" allowfullscreen
-                style="width:100%; height:100%; border-radius:20px 0 0 20px;">
             </iframe>`;
     }
     window.loadVideo = loadVideo;
-    // ------------------- HABILIDADES -------------------------
-    function renderSkills(textos) {
-        const carousel = document.querySelector('.skills-carousel');
-        const totalSkills = 12;
-        if (!carousel) return;
-        // Limpiar carrusel antes de volver a llenarlo
-        carousel.innerHTML = '';
-        for (let contador = 1; contador <= totalSkills; contador++) {
-            const wrapper = document.createElement('div');
-            wrapper.className = 'skill-item-wrapper flex';
-            const item = document.createElement('div');
-            item.className = 'skill-item flex';
-            item.innerHTML = `<img src="./assets/imgs/habilidad-${contador}.png" alt="Habilidad ${contador}">`;
-            const levelDiv = document.createElement('div');
-            levelDiv.className = 'skill-level';
-            levelDiv.textContent = textos[`skill_${contador}`] || '—';
-            wrapper.appendChild(item);
-            wrapper.appendChild(levelDiv);
-            carousel.appendChild(wrapper);
-        }
-        // Reiniciar animación de "lift"
-        const items = carousel.querySelectorAll('.skill-item');
-        if (items.length) {
-            let current = 0;
-            let dir = 1;
-            items[current].classList.add('lift');
-            if (window.skillInterval) clearInterval(window.skillInterval);
-            window.skillInterval = setInterval(() => {
-                items[current].classList.remove('lift');
-                if (current === items.length - 1) dir = -1;
-                else if (current === 0) dir = 1;
-                current += dir;
-                items[current].classList.add('lift');
-            }, 1500);
-        }
-    }
     //------------------- CAMBIO DE IDIOMA -------------------------
     const interruptorIdioma = document.getElementById('toggle');
     const elementosTraducibles = document.querySelectorAll('[data-lang]');
@@ -398,7 +361,6 @@ document.addEventListener('DOMContentLoaded', function () {
                         if (btn) btn.setAttribute('aria-label', ariaLabel);
                     }
                 }
-                renderSkills(textos);
                 updateProjectContent(); // Update project title with new language
                 // Reiniciar animación del header
                 iniciarAnimacionCambiador();

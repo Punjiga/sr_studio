@@ -852,71 +852,100 @@ footer nav ul li a:hover {
     color: var(--color-background);
 }
 
-/* ========================= SECCIÓN HABILIDADES ========================= */
-.skills-section {
+/* ========================= SECCIÓN SERVICIOS ========================= */
+.services-section {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 75px;
+    gap: 60px;
 }
 
-.skills-carousel {
-    justify-content: center;
-    gap: 2.5rem;
-    flex-wrap: wrap;
+.services-grid {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(2, auto);
-}
-
-.skill-item {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    overflow: hidden;
-    align-items: center;
-    justify-content: center;
-    transform: translateY(0) scale(1);
-    transition: transform 0.4s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.skill-item img {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    max-width: 1200px;
 }
 
-.skill-item.lift {
-    transform: translateY(-20px) scale(1.1);
-}
-
-.skill-item-wrapper {
-    position: relative;
-    justify-content: center;
+.service-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    gap: 20px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
 }
 
-.skill-level {
+.service-card::before {
+    content: '';
     position: absolute;
-    bottom: -25px;
-    left: 50%;
-    transform: translateX(-50%) translateY(10px);
-    font-family: var(--fuente-ctas-span);
-    font-weight: 600;
-    font-size: 18px;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-accent-primary), var(--color-text-secondary));
     opacity: 0;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    white-space: nowrap;
-    font-weight: 800;
+    transition: opacity 0.4s ease;
 }
 
-.skill-item-wrapper:hover .skill-level,
-.skill-item.lift+.skill-level {
+.service-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--color-accent-primary);
+    box-shadow: 0 20px 40px rgba(255, 255, 255, 0.08);
+}
+
+.service-card:hover::before {
     opacity: 1;
-    transform: translateX(-50%) translateY(0);
+}
+
+.service-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--color-surface-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+}
+
+.service-icon svg {
+    width: 30px;
+    height: 30px;
+    color: var(--color-text-primary);
+    transition: all 0.4s ease;
+}
+
+.service-card:hover .service-icon {
+    background: var(--color-accent-primary);
+    transform: scale(1.1);
+}
+
+.service-card:hover .service-icon svg {
+    color: var(--color-background);
+}
+
+.service-card h3 {
+    font-family: var(--fuente-h2-h5);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin: 0;
+}
+
+.service-card p {
+    font-family: var(--fuente-p);
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin: 0;
 }
 
 /* ========================= SECCIÓN PROYECTOS ========================= */
@@ -1448,14 +1477,19 @@ footer nav {
         font-size: 35px;
     }
 
-    .skill-item {
-        width: 80px;
-        height: 80px;
-    }
 
     .circleProject {
         width: 400px;
         height: 400px;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+
+    .service-card {
+        padding: 35px 25px;
     }
 
     .col1AboutMe img {
@@ -1566,15 +1600,39 @@ footer nav {
         border-radius: 20px;
     }
 
-    .skill-item {
-        width: 70px;
-        height: 70px;
-    }
 
     .circleProject {
         width: 300px;
         height: 300px;
         margin-top: 75px;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .service-card {
+        padding: 30px 20px;
+        gap: 15px;
+    }
+
+    .service-card h3 {
+        font-size: 18px;
+    }
+
+    .service-card p {
+        font-size: 13px;
+    }
+
+    .service-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .service-icon svg {
+        width: 24px;
+        height: 24px;
     }
 
     .sectionProjects h3 {
@@ -1706,15 +1764,6 @@ footer nav {
         height: 300px;
     }
 
-    .skills-carousel {
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(4, auto);
-    }
-
-    .skill-item {
-        width: 60px;
-        height: 60px;
-    }
 
     .radio-container {
         font-size: 20px;
@@ -1723,6 +1772,23 @@ footer nav {
     .circleProject {
         width: 250px;
         height: 250px;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .service-card {
+        padding: 25px 20px;
+    }
+
+    .service-card h3 {
+        font-size: 17px;
+    }
+
+    .service-card p {
+        font-size: 14px;
     }
 
     .col2Projects h3 {
@@ -1839,9 +1905,6 @@ footer nav {
         height: 250px;
     }
 
-    .skill-level {
-        font-size: 13px;
-    }
 }
 
 /* --- SMALLEST MOBILE (max-width: 320px) --- */
@@ -1863,9 +1926,6 @@ footer nav {
         font-size: 22px;
     }
 
-    .skills-section h2 {
-        font-size: 18px;
-    }
 
     .frase,
     .containerColsVideo p,
@@ -1892,10 +1952,6 @@ footer nav {
         padding: 30px 18px !important;
     }
 
-    .skill-item {
-        width: 50px;
-        height: 50px;
-    }
 
     .circleProject {
         width: 200px;
