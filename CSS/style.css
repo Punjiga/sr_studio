@@ -116,7 +116,7 @@ body:has(.welcome-screen:not(.oculta)) {
 .welcome-toggle-container {
     position: absolute;
     top: 30px;
-    right: 40px;
+    right: 50px;
     z-index: 10;
     animation: fadeSlideDown 0.8s ease 0.2s backwards;
 }

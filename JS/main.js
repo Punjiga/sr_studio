@@ -32,37 +32,57 @@ document.addEventListener('DOMContentLoaded', function () {
             // Sincronizar con toggle principal
             if (toggleMain) toggleMain.checked = toggleWelcome.checked;
 
-            // Actualizar textos y CV en welcome screen
-            actualizarWelcomeScreenIdioma(nuevoIdioma);
+            // Actualizar textos y CV en welcome screen con transición suave
+            actualizarWelcomeScreenIdioma(nuevoIdioma, true);
         });
     }
 
-    // Función para actualizar textos de welcome screen
-    function actualizarWelcomeScreenIdioma(idioma) {
-        const rutaJSON = `./JS/lang/${idioma}.json`;
-        fetch(rutaJSON)
-            .then(res => res.json())
-            .then(textos => {
-                // Actualizar textos con data-lang en welcome screen
-                pantallaWelcome.querySelectorAll('[data-lang]').forEach(el => {
-                    const clave = el.getAttribute('data-lang');
-                    if (textos[clave]) {
-                        el.innerHTML = textos[clave];
-                    }
-                });
+    // Función para actualizar textos de welcome screen con transición suave
+    function actualizarWelcomeScreenIdioma(idioma, conTransicion = false) {
+        const welcomeContent = document.querySelector('.welcome-content');
 
-                // Actualizar enlace de CV
-                if (welcomeCvBtn) {
-                    if (idioma === 'es') {
-                        welcomeCvBtn.href = './assets/curriculum-steven-rojas.pdf';
-                        welcomeCvBtn.download = 'Curriculum-Steven-Rojas.pdf';
-                    } else {
-                        welcomeCvBtn.href = './assets/resume-steven-rojas.pdf';
-                        welcomeCvBtn.download = 'Resume-Steven-Rojas.pdf';
+        function aplicarTextos() {
+            const rutaJSON = `./JS/lang/${idioma}.json`;
+            fetch(rutaJSON)
+                .then(res => res.json())
+                .then(textos => {
+                    // Actualizar textos con data-lang en welcome screen
+                    pantallaWelcome.querySelectorAll('[data-lang]').forEach(el => {
+                        const clave = el.getAttribute('data-lang');
+                        if (textos[clave]) {
+                            el.innerHTML = textos[clave];
+                        }
+                    });
+
+                    // Actualizar enlace de CV
+                    if (welcomeCvBtn) {
+                        if (idioma === 'es') {
+                            welcomeCvBtn.href = './assets/curriculum-steven-rojas.pdf';
+                            welcomeCvBtn.download = 'Curriculum-Steven-Rojas.pdf';
+                        } else {
+                            welcomeCvBtn.href = './assets/resume-steven-rojas.pdf';
+                            welcomeCvBtn.download = 'Resume-Steven-Rojas.pdf';
+                        }
                     }
-                }
-            })
-            .catch(err => console.error('Error cargando idioma en welcome:', err));
+
+                    // Fade in después de actualizar textos
+                    if (conTransicion && welcomeContent) {
+                        setTimeout(() => {
+                            welcomeContent.style.opacity = '1';
+                        }, 50);
+                    }
+                })
+                .catch(err => console.error('Error cargando idioma en welcome:', err));
+        }
+
+        // Si es con transición, hacer fade out primero
+        if (conTransicion && welcomeContent) {
+            welcomeContent.style.transition = 'opacity 0.3s ease';
+            welcomeContent.style.opacity = '0';
+            setTimeout(aplicarTextos, 300);
+        } else {
+            aplicarTextos();
+        }
     }
 
     // Cargar idioma inicial para welcome screen

@@ -1,5 +1,14 @@
 // ========================= PANTALLA DE CARGA =========================
 const pantallaCarga = document.getElementById('pantallaCarga');
+const cargaTexto = document.getElementById('cargaTexto');
+const idiomaGuardado = localStorage.getItem('preferredLang') || 'es';
+
+// Update loading text based on saved language
+if (cargaTexto && idiomaGuardado === 'en') {
+    cargaTexto.innerHTML = '<span>L</span><span>o</span><span>a</span><span>d</span><span>i</span><span>n</span><span>g</span><span>.</span><span>.</span><span>.</span>';
+    cargaTexto.setAttribute('aria-label', 'Loading...');
+}
+
 if (pantallaCarga) {
     setTimeout(() => {
         pantallaCarga.classList.add('oculta');
@@ -10,6 +19,54 @@ if (pantallaCarga) {
 if (window.loadParticles) {
     loadParticles("tsparticles");
     loadParticles("tsparticles-main");
+}
+
+// ========================= LANGUAGE SWITCHING =========================
+const toggleGallery = document.getElementById('toggleGallery');
+let idiomaActual = localStorage.getItem('preferredLang') || 'es';
+
+// Sync toggle with saved preference
+if (toggleGallery && idiomaActual === 'en') {
+    toggleGallery.checked = true;
+}
+
+// Load initial language
+cargarTextosGaleria(idiomaActual);
+
+// Handle toggle change
+if (toggleGallery) {
+    toggleGallery.addEventListener('change', () => {
+        const nuevoIdioma = toggleGallery.checked ? 'en' : 'es';
+        if (nuevoIdioma !== idiomaActual) {
+            cambiarIdiomaGaleria(nuevoIdioma);
+        }
+    });
+}
+
+function cambiarIdiomaGaleria(nuevoIdioma) {
+    document.body.classList.add('cambiando-idioma');
+    localStorage.setItem('preferredLang', nuevoIdioma);
+
+    setTimeout(() => {
+        idiomaActual = nuevoIdioma;
+        cargarTextosGaleria(idiomaActual);
+        document.documentElement.setAttribute('lang', idiomaActual);
+        document.body.classList.remove('cambiando-idioma');
+    }, 300);
+}
+
+function cargarTextosGaleria(codigoIdioma) {
+    fetch(`../JS/lang/${codigoIdioma}.json`)
+        .then(res => res.json())
+        .then(textos => {
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                const clave = el.getAttribute('data-lang');
+                if (textos[clave]) {
+                    el.innerHTML = textos[clave];
+                }
+            });
+        })
+        .catch(err => console.error('Error loading language:', err));
 }
 
 // ========================= ANIMACIONES SCROLL =========================
