@@ -69,6 +69,9 @@ body.cambiando-idioma [data-lang] {
     top: 30px;
     right: 30px;
     z-index: 50;
+    height: 56px;
+    display: flex;
+    align-items: center;
 }
 
 @media (max-width: 600px) {
@@ -86,7 +89,7 @@ body.cambiando-idioma [data-lang] {
 .idiomaSwitch {
     gap: 15px;
     align-items: center;
-    font-size: 18px;
+    font-size: 20px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
 }
@@ -137,14 +140,14 @@ body.cambiando-idioma [data-lang] {
 }
 
 @media (max-width: 600px) {
+    .gallery-header .back-arrow {
+        top: 20px;
+        left: 20px;
+    }
+
     .gallery-toggle-container {
         top: 20px;
         right: 20px;
-    }
-
-    .idiomaSwitch {
-        gap: 10px;
-        font-size: 14px;
     }
 }
 

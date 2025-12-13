@@ -1579,7 +1579,9 @@ footer nav {
         padding: 0px 20px;
     }
 
-    header nav * {
+    header nav .logo,
+    header nav ul,
+    header nav .bar {
         transform: scale(0.95);
     }
 
@@ -1793,7 +1795,9 @@ footer nav {
         gap: 30px;
     }
 
-    header nav * {
+    header nav .logo,
+    header nav ul,
+    header nav .bar {
         transform: scale(0.9) !important;
     }
 
