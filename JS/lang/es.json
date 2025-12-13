@@ -45,5 +45,8 @@
     "form_message_placeholder": "Escribe tu mensaje",
     "btn_send": "Enviar",
     "footer_quote": "\"Creando con propósito.\"",
-    "footer_copyright": "© 2025 Steven Rojas – Todos los derechos reservados"
+    "footer_copyright": "© 2025 Steven Rojas – Todos los derechos reservados",
+    "welcome_question": "¿Qué quieres hacer?",
+    "welcome_download_cv": "Descargar Currículum",
+    "welcome_visit_portfolio": "Visitar Portafolio"
 }

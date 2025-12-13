@@ -1,10 +1,81 @@
 document.addEventListener('DOMContentLoaded', function () {
-    //------------------- PANTALLA DE CARGA --------------------------
-    const pantallaCarga = document.getElementById('pantallaCarga');
-    if (pantallaCarga) {
-        setTimeout(() => {
-            pantallaCarga.classList.add('oculta');
-        }, 1600);
+    //------------------- PANTALLA DE BIENVENIDA --------------------------
+    const pantallaWelcome = document.getElementById('pantallaWelcome');
+    const welcomePortfolioBtn = document.getElementById('welcomePortfolioBtn');
+    const toggleWelcome = document.getElementById('toggleWelcome');
+    const toggleMain = document.getElementById('toggle');
+    const welcomeCvBtn = document.getElementById('welcomeCvBtn');
+    const parallaxBg = document.querySelector('.welcome-parallax-bg');
+
+    // Sincronizar idioma guardado en localStorage
+    const savedLang = localStorage.getItem('preferredLang');
+    if (savedLang === 'en') {
+        if (toggleWelcome) toggleWelcome.checked = true;
+        if (toggleMain) toggleMain.checked = true;
+    }
+
+    // Parallax en el fondo de bienvenida
+    if (pantallaWelcome && parallaxBg) {
+        pantallaWelcome.addEventListener('mousemove', (e) => {
+            const x = (e.clientX / window.innerWidth - 0.5) * 30;
+            const y = (e.clientY / window.innerHeight - 0.5) * 30;
+            parallaxBg.style.transform = `translate(${x}px, ${y}px)`;
+        });
+    }
+
+    // Sincronizar toggle de welcome con toggle principal
+    if (toggleWelcome) {
+        toggleWelcome.addEventListener('change', () => {
+            const nuevoIdioma = toggleWelcome.checked ? 'en' : 'es';
+            localStorage.setItem('preferredLang', nuevoIdioma);
+
+            // Sincronizar con toggle principal
+            if (toggleMain) toggleMain.checked = toggleWelcome.checked;
+
+            // Actualizar textos y CV en welcome screen
+            actualizarWelcomeScreenIdioma(nuevoIdioma);
+        });
+    }
+
+    // Función para actualizar textos de welcome screen
+    function actualizarWelcomeScreenIdioma(idioma) {
+        const rutaJSON = `./JS/lang/${idioma}.json`;
+        fetch(rutaJSON)
+            .then(res => res.json())
+            .then(textos => {
+                // Actualizar textos con data-lang en welcome screen
+                pantallaWelcome.querySelectorAll('[data-lang]').forEach(el => {
+                    const clave = el.getAttribute('data-lang');
+                    if (textos[clave]) {
+                        el.innerHTML = textos[clave];
+                    }
+                });
+
+                // Actualizar enlace de CV
+                if (welcomeCvBtn) {
+                    if (idioma === 'es') {
+                        welcomeCvBtn.href = './assets/curriculum-steven-rojas.pdf';
+                        welcomeCvBtn.download = 'Curriculum-Steven-Rojas.pdf';
+                    } else {
+                        welcomeCvBtn.href = './assets/resume-steven-rojas.pdf';
+                        welcomeCvBtn.download = 'Resume-Steven-Rojas.pdf';
+                    }
+                }
+            })
+            .catch(err => console.error('Error cargando idioma en welcome:', err));
+    }
+
+    // Cargar idioma inicial para welcome screen
+    if (pantallaWelcome) {
+        const idiomaInicial = savedLang || 'es';
+        actualizarWelcomeScreenIdioma(idiomaInicial);
+    }
+
+    // Botón "Visitar Portafolio" - oculta la pantalla de bienvenida
+    if (welcomePortfolioBtn && pantallaWelcome) {
+        welcomePortfolioBtn.addEventListener('click', () => {
+            pantallaWelcome.classList.add('oculta');
+        });
     }
     //------------------- MENU HAMBURGUESA --------------------------
     const menuToggle = document.getElementById('menu-toggle');
@@ -41,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function () {
         es: ["Web", "Foto", "Video"],
         en: ["Web", "Photo", "Video"]
     };
-    let idiomaActual = 'es';
+    let idiomaActual = localStorage.getItem('preferredLang') || 'es';
     let currentTextos = {}; // Store current translations globally
 
     const cambiadorId = "cambiador";
@@ -263,6 +334,12 @@ document.addEventListener('DOMContentLoaded', function () {
     //------------------- CAMBIO DE IDIOMA -------------------------
     const interruptorIdioma = document.getElementById('toggle');
     const elementosTraducibles = document.querySelectorAll('[data-lang]');
+
+    // Sincronizar toggle principal con idioma guardado
+    if (interruptorIdioma && idiomaActual === 'en') {
+        interruptorIdioma.checked = true;
+    }
+
     cargarTextosDelIdioma(idiomaActual);
     if (interruptorIdioma) {
         interruptorIdioma.addEventListener('change', () => {
@@ -274,6 +351,12 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     function cambiarIdioma(nuevoIdioma) {
         document.body.classList.add('cambiando-idioma');
+        localStorage.setItem('preferredLang', nuevoIdioma);
+
+        // Sincronizar con toggle de welcome screen
+        const toggleWelcomeSync = document.getElementById('toggleWelcome');
+        if (toggleWelcomeSync) toggleWelcomeSync.checked = (nuevoIdioma === 'en');
+
         setTimeout(() => {
             idiomaActual = nuevoIdioma;
             cargarTextosDelIdioma(idiomaActual);
@@ -316,12 +399,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 const cvLink = document.getElementById('cvDownloadLink');
                 if (cvLink) {
                     if (codigoIdioma === 'es') {
-                        cvLink.href = './assets/CV-WEB-ES.pdf';
-                        cvLink.download = 'CV-Steven-Rojas-ES.pdf';
+                        cvLink.href = './assets/curriculum-steven-rojas.pdf';
+                        cvLink.download = 'Curriculum-Steven-Rojas.pdf';
                         cvLink.setAttribute('aria-label', 'Descargar CV en español');
                     } else {
-                        cvLink.href = './assets/CV-WEB-EN.pdf';
-                        cvLink.download = 'CV-Steven-Rojas-EN.pdf';
+                        cvLink.href = './assets/resume-steven-rojas.pdf';
+                        cvLink.download = 'Resume-Steven-Rojas.pdf';
                         cvLink.setAttribute('aria-label', 'Download CV in English');
                     }
                 }

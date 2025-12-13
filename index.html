@@ -15,14 +15,40 @@
 </head>
 
 <body>
-    <!-- Pantalla de Carga -->
-    <div id="pantallaCarga" class="pantalla-carga">
-        <div class="carga-contenido">
-            <h1 class="carga-texto" aria-label="Iniciando...">
-                <span>I</span><span>n</span><span>i</span><span>c</span><span>i</span><span>a</span><span>n</span><span>d</span><span>o</span><span>.</span><span>.</span><span>.</span>
-            </h1>
-            <div class="carga-barra-contenedor">
-                <div class="carga-barra"></div>
+    <!-- Pantalla de Bienvenida -->
+    <div id="pantallaWelcome" class="welcome-screen">
+        <div class="welcome-parallax-bg"></div>
+        <div class="welcome-toggle-container">
+            <div class="idiomaSwitch flex">
+                <span data-lang="lang_es">ES</span>
+                <div class="toggle-switch">
+                    <input class="toggle-input" id="toggleWelcome" type="checkbox">
+                    <label class="toggle-label" for="toggleWelcome" aria-label="Cambiar idioma"></label>
+                </div>
+                <span data-lang="lang_en">EN</span>
+            </div>
+        </div>
+        <div class="welcome-content">
+            <h2 class="welcome-question" data-lang="welcome_question">¿Qué quieres hacer?</h2>
+            <div class="welcome-buttons">
+                <a id="welcomeCvBtn" href="./assets/curriculum-steven-rojas.pdf" download="Curriculum-Steven-Rojas.pdf"
+                    class="btn welcome-btn welcome-btn-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                        <polyline points="7 10 12 15 17 10" />
+                        <line x1="12" y1="15" x2="12" y2="3" />
+                    </svg>
+                    <span data-lang="welcome_download_cv">Descargar Currículum</span>
+                </a>
+                <button id="welcomePortfolioBtn" class="btn welcome-btn welcome-btn-secondary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14" />
+                        <path d="M12 5l7 7-7 7" />
+                    </svg>
+                    <span data-lang="welcome_visit_portfolio">Visitar Portafolio</span>
+                </button>
             </div>
         </div>
     </div>
@@ -326,8 +352,8 @@
                 <li><a href="galeria_videos/index.html" class="animation" data-lang="nav_gallery">GALERÍA</a></li>
             </ul>
         </nav>
-        <a id="cvDownloadLink" href="./assets/CV-WEB-ES.pdf" download="CV-Steven-Rojas.pdf" class="animation cvBtn"
-            aria-label="Descargar CV en PDF">
+        <a id="cvDownloadLink" href="./assets/curriculum-steven-rojas.pdf" download="Curriculum-Steven-Rojas.pdf"
+            class="animation cvBtn" aria-label="Descargar CV en PDF">
             <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 152 136" fill="none">
                 <path opacity="0.95"
                     d="M113.906 45.3876H91.2596V0.0947266H61.0643V45.3876H38.4179L76.1619 83.1317L113.906 45.3876ZM146.653 94.6965C145.068 93.0055 134.492 81.6899 131.472 78.7383C129.357 76.7079 126.538 75.5768 123.606 75.5829H110.343L133.473 98.184H106.72C106.355 98.1742 105.995 98.2622 105.677 98.4387C105.358 98.6153 105.093 98.874 104.908 99.188L98.748 113.327H53.5759L47.4161 99.188C47.2256 98.8793 46.9589 98.6247 46.6416 98.4489C46.3243 98.2731 45.9671 98.1818 45.6043 98.184H18.8513L41.9734 75.5829H28.7176C25.7208 75.5829 22.8598 76.7831 20.8518 78.7383C17.8323 81.6974 7.25636 93.0131 5.67111 94.6965C1.97974 98.6294 -0.0508919 101.762 0.915357 105.635L5.15024 128.84C6.11649 132.72 10.3665 135.905 14.6014 135.905H137.738C141.973 135.905 146.223 132.72 147.189 128.84L151.424 105.635C152.375 101.762 150.352 98.6294 146.653 94.6965Z"

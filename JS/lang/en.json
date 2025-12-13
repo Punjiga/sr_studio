@@ -45,5 +45,8 @@
     "form_message_placeholder": "Your message",
     "btn_send": "Send",
     "footer_quote": "\"Creating with purpose.\"",
-    "footer_copyright": "© 2025 Steven Rojas – All rights reserved"
+    "footer_copyright": "© 2025 Steven Rojas – All rights reserved",
+    "welcome_question": "What do you want to do?",
+    "welcome_download_cv": "Download Resume",
+    "welcome_visit_portfolio": "Visit Portfolio"
 }

@@ -77,12 +77,12 @@ body.cambiando-idioma footer {
     opacity: 0;
 }
 
-/* ========================= PANTALLA DE CARGA ========================= */
-body:has(.pantalla-carga:not(.oculta)) {
+/* ========================= PANTALLA DE BIENVENIDA ========================= */
+body:has(.welcome-screen:not(.oculta)) {
     overflow: hidden;
 }
 
-.pantalla-carga {
+.welcome-screen {
     position: fixed;
     inset: 0;
     z-index: 99999;
@@ -91,148 +91,196 @@ body:has(.pantalla-carga:not(.oculta)) {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
 }
 
-.pantalla-carga.oculta {
+.welcome-screen.oculta {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
 }
 
-.carga-contenido {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
+/* Fondo parallax animado */
+.welcome-parallax-bg {
+    position: absolute;
+    inset: -50px;
+    background:
+        radial-gradient(ellipse at 20% 30%, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 70%, rgba(255, 255, 255, 0.02) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.01) 0%, transparent 70%);
+    transition: transform 0.3s ease-out;
+    pointer-events: none;
 }
 
-.carga-texto {
-    font-family: var(--fuente-h1);
-    font-size: clamp(1.8rem, 6vw, 4rem);
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.02em;
-    padding: 0 1rem;
-    text-align: center;
+/* Toggle container - arriba derecha */
+.welcome-toggle-container {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    z-index: 10;
+    animation: fadeSlideDown 0.8s ease 0.2s backwards;
 }
 
-.carga-texto span {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: letraEntrada 0.4s ease forwards;
-    color: var(--color-text-primary) !important;
-    text-shadow: none !important;
-    font-size: inherit !important;
-    font-weight: inherit !important;
-}
+@keyframes fadeSlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
 
-.carga-texto span:nth-child(1) {
-    animation-delay: 0.05s;
-}
-
-.carga-texto span:nth-child(2) {
-    animation-delay: 0.1s;
-}
-
-.carga-texto span:nth-child(3) {
-    animation-delay: 0.15s;
-}
-
-.carga-texto span:nth-child(4) {
-    animation-delay: 0.2s;
-}
-
-.carga-texto span:nth-child(5) {
-    animation-delay: 0.25s;
-}
-
-.carga-texto span:nth-child(6) {
-    animation-delay: 0.3s;
-}
-
-.carga-texto span:nth-child(7) {
-    animation-delay: 0.35s;
-}
-
-.carga-texto span:nth-child(8) {
-    animation-delay: 0.4s;
-}
-
-.carga-texto span:nth-child(9) {
-    animation-delay: 0.45s;
-}
-
-.carga-texto span:nth-child(10) {
-    animation-delay: 0.5s;
-}
-
-.carga-texto span:nth-child(11) {
-    animation-delay: 0.55s;
-}
-
-.carga-texto span:nth-child(12) {
-    animation-delay: 0.6s;
-}
-
-.carga-texto span:nth-child(13) {
-    animation-delay: 0.65s;
-}
-
-.carga-texto span:nth-child(14) {
-    animation-delay: 0.7s;
-}
-
-.carga-texto span:nth-child(15) {
-    animation-delay: 0.75s;
-}
-
-.carga-texto span:nth-child(16) {
-    animation-delay: 0.8s;
-}
-
-.carga-texto span:nth-child(17) {
-    animation-delay: 0.85s;
-}
-
-.carga-texto span:nth-child(18) {
-    animation-delay: 0.9s;
-}
-
-@keyframes letraEntrada {
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-.carga-barra-contenedor {
-    width: clamp(150px, 60vw, 320px);
-    height: 4px;
-    background: var(--color-surface-light);
-    border-radius: 2px;
-    overflow: hidden;
+/* Contenido centrado */
+.welcome-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    z-index: 5;
+    padding: 20px;
 }
 
-.carga-barra {
-    height: 100%;
-    width: 0;
-    background: linear-gradient(90deg, var(--color-text-primary) 0%, var(--color-text-muted) 100%);
-    border-radius: 2px;
-    animation: barraProgreso 1.8s ease-out forwards;
-    animation-delay: 0.2s;
+/* Pregunta principal */
+.welcome-question {
+    font-family: var(--fuente-h1);
+    font-size: clamp(1.8rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    text-align: center;
+    letter-spacing: 0.02em;
+    animation: fadeScaleIn 1s ease 0.3s backwards;
 }
 
-@keyframes barraProgreso {
-    0% {
-        width: 0;
+@keyframes fadeScaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
     }
 
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Contenedor de botones */
+.welcome-buttons {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    justify-content: center;
+    animation: fadeSlideUp 1s ease 0.5s backwards;
+}
+
+@keyframes fadeSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Botones de bienvenida */
+.welcome-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    padding: 1rem 2rem;
+    border-radius: 0.8em;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.welcome-btn svg {
+    width: 22px;
+    height: 22px;
+    transition: transform 0.3s ease;
+}
+
+.welcome-btn span {
+    font-family: var(--fuente-ctas-span);
+    font-weight: 600;
+    color: inherit !important;
+    text-shadow: none !important;
+    font-size: inherit !important;
+}
+
+/* Botón primario - Descargar CV */
+.welcome-btn-primary {
+    background-color: var(--color-accent-primary);
+    border: 2px solid var(--color-accent-primary);
+    color: var(--color-background);
+}
+
+.welcome-btn-primary:hover {
+    background-color: transparent;
+    color: var(--color-accent-primary);
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(255, 255, 255, 0.15);
+}
+
+.welcome-btn-primary:hover svg {
+    transform: translateY(3px);
+    animation: bounceDown 0.6s ease infinite;
+}
+
+@keyframes bounceDown {
+
+    0%,
     100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(4px);
+    }
+}
+
+/* Botón secundario - Visitar Portfolio */
+.welcome-btn-secondary {
+    background-color: transparent;
+    border: 2px solid var(--color-border);
+    color: var(--color-text-secondary);
+}
+
+.welcome-btn-secondary:hover {
+    border-color: var(--color-accent-primary);
+    color: var(--color-accent-primary);
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(255, 255, 255, 0.1);
+}
+
+.welcome-btn-secondary:hover svg {
+    transform: translateX(5px);
+}
+
+/* Responsive para welcome screen */
+@media (max-width: 600px) {
+    .welcome-toggle-container {
+        top: 20px;
+        right: 20px;
+    }
+
+    .welcome-buttons {
+        flex-direction: column;
         width: 100%;
+        padding: 0 20px;
+    }
+
+    .welcome-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 1.1rem 1.5rem;
     }
 }
 
