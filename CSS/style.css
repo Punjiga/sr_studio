@@ -87,7 +87,6 @@ body:has(.welcome-screen:not(.oculta)) {
     inset: 0;
     z-index: 99999;
     background: var(--color-background);
-    display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
@@ -168,7 +167,6 @@ body:has(.welcome-screen:not(.oculta)) {
 
 /* Contenedor de botones */
 .welcome-buttons {
-    display: flex;
     gap: 25px;
     flex-wrap: wrap;
     justify-content: center;
@@ -189,7 +187,6 @@ body:has(.welcome-screen:not(.oculta)) {
 
 /* Botones de bienvenida */
 .welcome-btn {
-    display: flex;
     align-items: center;
     gap: 12px;
     font-size: clamp(1rem, 2.5vw, 1.25rem);
@@ -1792,7 +1789,7 @@ footer nav {
 /* --- MOBILE (max-width: 650px) --- */
 @media screen and (max-width: 650px) {
     header {
-        gap: 30px;
+        gap: 20px;
     }
 
     header nav .logo,
@@ -1978,6 +1975,7 @@ footer nav {
     header {
         padding: 0px 15px;
         align-items: center;
+        gap: 15px;
     }
 
     header nav h1 {
