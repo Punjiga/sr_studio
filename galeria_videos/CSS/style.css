@@ -138,27 +138,13 @@ body.cambiando-idioma [data-lang] {
 
 @media (max-width: 600px) {
     .gallery-toggle-container {
-        top: 15px;
+        top: 20px;
         right: 20px;
     }
 
     .idiomaSwitch {
         gap: 10px;
         font-size: 14px;
-    }
-
-    .toggle-switch {
-        width: 50px;
-        height: 28px;
-    }
-
-    .toggle-label:before {
-        width: 24px;
-        height: 24px;
-    }
-
-    .toggle-input:checked+.toggle-label:before {
-        transform: translateX(22px);
     }
 }
 
