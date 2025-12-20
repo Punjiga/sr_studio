@@ -187,6 +187,8 @@ body:has(.welcome-screen:not(.oculta)) {
 
 /* Botones de bienvenida */
 .welcome-btn {
+    display: flex;
+    justify-content: center;
     align-items: center;
     gap: 12px;
     font-size: clamp(1rem, 2.5vw, 1.25rem);
@@ -476,7 +478,7 @@ button,
 
 .label {
     position: relative;
-    top: -1px;
+    top: 0;
 }
 
 #mensaje {
