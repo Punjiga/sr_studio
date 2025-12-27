@@ -1006,119 +1006,184 @@ footer nav ul li a:hover {
 }
 
 /* ========================= SECCIÓN PROYECTOS ========================= */
-.sectionProjects {
-    height: fit-content;
+.projects-section {
+    display: flex;
     flex-direction: column;
+    align-items: center;
+    gap: 60px;
+    padding: 100px 50px;
     position: relative;
-}
-
-.radio-container {
-    border: none;
-    margin: 0;
-    padding: 0;
-    position: relative;
-    flex-direction: column;
-    width: max-content;
-    font-family: var(--fuente-ctas-span);
-    font-weight: 600;
-    font-size: 30px;
-}
-
-.radio-container legend {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
     overflow: hidden;
-    clip: rect(0 0 0 0);
-    white-space: nowrap;
-    border: 0;
 }
 
-.circleProject {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 500px;
-    height: 500px;
-    border-radius: 50%;
-    background-size: cover;
-    background-position: 50%;
-    background-repeat: no-repeat;
-    background-image: url('../assets/imgs/project-1.png');
-    z-index: 1;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
-    opacity: 1;
+.projects-header {
+    text-align: center;
+    max-width: 700px;
 }
 
-.circleProject:hover {
-    transform: translate(-50%, -50%) rotate(5deg);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+.projects-subtitle {
+    font-family: var(--fuente-p);
+    font-size: 18px;
+    color: var(--color-text-secondary);
+    margin-top: 15px;
+    font-weight: 400;
 }
 
-.containerCols {
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
     width: 100%;
-    height: 100%;
+    max-width: 1100px;
 }
 
-.col1Projects,
-.col2Projects {
-    width: 50%;
-    height: 100%;
+/* Project Card */
+.project-card {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.project-card-inner {
+    position: relative;
+    z-index: 2;
+    background: linear-gradient(145deg, var(--color-surface) 0%, rgba(26, 26, 26, 0.9) 100%);
+    border: 1px solid var(--color-border);
+    border-radius: 20px;
+    padding: 40px;
+    display: flex;
     flex-direction: column;
+    gap: 25px;
+    min-height: 320px;
+    transition: all 0.4s ease;
 }
 
-.col1Projects {
-    padding-top: 65px;
+.project-card:hover .project-card-inner {
+    border-color: var(--color-accent-primary);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
 }
 
-.col2Projects {
-    align-items: end;
-    padding-top: 493px;
-    gap: 32px;
+.project-card:hover {
+    transform: translateY(-10px);
 }
 
-.col2Projects h3 {
-    text-transform: capitalize;
-    font-size: 32px;
-    min-height: 80px;
-    align-items: flex-end;
-    justify-content: flex-end;
-    text-align: right;
-    transition: opacity 0.3s ease;
+/* Glow Effect */
+.project-glow {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(232, 232, 232, 0.08) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.project-card:hover .project-glow {
     opacity: 1;
 }
 
-.containerBtn {
-    justify-content: center;
-    gap: 37px;
+/* Project Number */
+.project-number {
+    font-family: var(--fuente-h1);
+    font-size: 48px;
+    font-weight: 800;
+    color: var(--color-surface-light);
+    line-height: 1;
+    letter-spacing: -2px;
+    transition: color 0.4s ease;
 }
 
-.radio-container input {
-    appearance: none;
+.project-card:hover .project-number {
+    color: var(--color-border);
+}
+
+/* Project Content */
+.project-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.project-content h3 {
+    font-family: var(--fuente-h2-h5);
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin: 0;
+    letter-spacing: 0.5px;
+}
+
+.project-content p {
+    font-family: var(--fuente-p);
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
     margin: 0;
 }
 
-.radio-container label {
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    color: var(--color-text-muted);
+/* Project Tags */
+.project-tags {
+    display: block;
+    font-family: var(--fuente-ctas-span);
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    color: var(--color-text-muted) !important;
+    text-shadow: none !important;
+    letter-spacing: 0.5px;
+    margin-top: 8px;
+    padding: 10px 0;
+    border-top: 1px solid var(--color-border-light);
 }
 
-.radio-container input:checked+label {
+/* Project Link */
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--fuente-ctas-span);
+    font-size: 16px;
+    font-weight: 600;
     color: var(--color-accent-primary);
+    text-decoration: none;
+    padding: 14px 28px;
+    background: transparent;
+    border: 2px solid var(--color-accent-primary);
+    border-radius: 50px;
+    width: fit-content;
+    transition: all 0.3s ease;
 }
 
-.radio-container .glider {
-    position: absolute;
-    left: 0;
-    width: 4px;
+.project-link span {
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    color: inherit !important;
+    text-shadow: none !important;
+}
+
+.project-link svg {
+    transition: transform 0.3s ease;
+}
+
+.project-link:hover {
     background: var(--color-accent-primary);
-    top: 0;
-    height: calc(100% / 4);
+    color: var(--color-background);
+    transform: translateX(5px);
+    box-shadow: 0 10px 30px rgba(232, 232, 232, 0.15);
+}
+
+.project-link:hover span {
+    color: var(--color-background) !important;
+}
+
+.project-link:hover svg {
+    transform: translate(3px, -3px);
+    stroke: var(--color-background);
 }
 
 /* ========================= SECCIÓN SOBRE MÍ ========================= */
@@ -1535,9 +1600,21 @@ footer nav {
     }
 
 
-    .circleProject {
-        width: 400px;
-        height: 400px;
+    .projects-grid {
+        gap: 30px;
+    }
+
+    .project-card-inner {
+        padding: 30px;
+        min-height: 280px;
+    }
+
+    .project-number {
+        font-size: 40px;
+    }
+
+    .project-content h3 {
+        font-size: 24px;
     }
 
     .services-grid {
@@ -1660,10 +1737,37 @@ footer nav {
     }
 
 
-    .circleProject {
-        width: 300px;
-        height: 300px;
-        margin-top: 75px;
+    /* Projects responsive 768px */
+    .projects-section {
+        padding: 60px 30px;
+        gap: 40px;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        max-width: 500px;
+    }
+
+    .project-card-inner {
+        padding: 28px;
+        min-height: auto;
+    }
+
+    .project-number {
+        font-size: 36px;
+    }
+
+    .project-content h3 {
+        font-size: 22px;
+    }
+
+    .project-content p {
+        font-size: 15px;
+    }
+
+    .projects-subtitle {
+        font-size: 16px;
     }
 
     .services-grid {
@@ -1694,13 +1798,7 @@ footer nav {
         height: 24px;
     }
 
-    .sectionProjects h3 {
-        font-size: 28px;
-    }
 
-    .radio-container {
-        font-size: 25px;
-    }
 
     .btn {
         font-size: 20px;
@@ -1826,34 +1924,36 @@ footer nav {
     }
 
 
-    .radio-container {
-        font-size: 20px;
+    /* Projects responsive 650px */
+    .projects-section {
+        padding: 50px 20px;
+        gap: 30px;
     }
 
-    .circleProject {
-        width: 250px;
-        height: 250px;
-    }
-
-    .services-grid {
-        grid-template-columns: 1fr;
+    .projects-grid {
         gap: 20px;
     }
 
-    .service-card {
-        padding: 25px 20px;
+    .project-card-inner {
+        padding: 24px;
+        gap: 20px;
     }
 
-    .service-card h3 {
-        font-size: 17px;
+    .project-number {
+        font-size: 32px;
     }
 
-    .service-card p {
+    .project-content h3 {
+        font-size: 20px;
+    }
+
+    .project-content p {
         font-size: 14px;
     }
 
-    .col2Projects h3 {
-        font-size: 24px;
+    .project-link {
+        padding: 12px 24px;
+        font-size: 14px;
     }
 
     .btn {
@@ -2015,22 +2115,35 @@ footer nav {
     }
 
 
-    .circleProject {
-        width: 200px;
-        height: 200px;
+    /* Projects responsive 320px */
+    .projects-section {
+        padding: 40px 15px;
     }
 
-    .col2Projects h3 {
-        font-size: 20px;
+    .project-card-inner {
+        padding: 20px;
+        gap: 15px;
     }
 
-    .btn {
-        font-size: 16px;
-        padding: .5rem 1.5rem;
+    .project-number {
+        font-size: 28px;
     }
 
-    .radio-container {
+    .project-content h3 {
         font-size: 18px;
+    }
+
+    .project-content p {
+        font-size: 13px;
+    }
+
+    .project-link {
+        padding: 10px 20px;
+        font-size: 13px;
+    }
+
+    .projects-subtitle {
+        font-size: 14px;
     }
 
     .col1AboutMe {

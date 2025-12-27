@@ -39,7 +39,7 @@
                         <polyline points="7 10 12 15 17 10" />
                         <line x1="12" y1="15" x2="12" y2="3" />
                     </svg>
-                    <span data-lang="welcome_download_cv">Descargar Currículum</span>
+                    <span data-lang="welcome_download_cv">Ver Currículum</span>
                 </a>
                 <button id="welcomePortfolioBtn" class="btn welcome-btn welcome-btn-secondary">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -47,7 +47,7 @@
                         <path d="M5 12h14" />
                         <path d="M12 5l7 7-7 7" />
                     </svg>
-                    <span data-lang="welcome_visit_portfolio">Visitar Portafolio</span>
+                    <span data-lang="welcome_visit_portfolio">Ver Portafolio</span>
                 </button>
             </div>
         </div>
@@ -216,38 +216,76 @@
             </div>
         </section>
         <!-- SECCIÓN #3 PROYECTOS -->
-        <section class="sectionProjects padding flex animation" id="PROYECTOS">
-            <h2 data-lang="projects_title" class="fade-up">Proyectos recientes</h2>
-            <article class="containerCols flex">
-                <div class="col1Projects flex slide-right">
-                    <!-- PARA MOVERSE EN LOS PROYECTOS -->
-                    <fieldset class="radio-container flex">
-                        <legend class="visually-hidden">Selecciona un proyecto</legend>
-                        <input id="proj1" name="project" type="radio" checked>
-                        <label class="animation" for="proj1" data-lang="project_1_label">Proyecto #1</label>
-                        <input id="proj2" name="project" type="radio">
-                        <label class="animation" for="proj2" data-lang="project_2_label">Proyecto #2</label>
-                        <input id="proj3" name="project" type="radio">
-                        <label class="animation" for="proj3" data-lang="project_3_label">Proyecto #3</label>
-                        <input id="proj4" name="project" type="radio">
-                        <label class="animation" for="proj4" data-lang="project_4_label">Proyecto #4</label>
-                        <div class="glider animation"></div>
-                    </fieldset>
-                </div>
-                <div class="col2Projects flex slide-left">
-                    <h3 id="projectTitle" class="flex">Congreso De Café</h3>
-                    <div class="containerBtn flex">
-                        <a id="visitBtn" class="btn" target="_blank">
-                            <span class="transition"></span>
-                            <span class="label" data-lang="btn_visit">Visitar</span>
+        <!-- 
+        ╔═══════════════════════════════════════════════════════════════════════════╗
+        ║  CÓMO AGREGAR UN NUEVO PROYECTO / HOW TO ADD A NEW PROJECT                ║
+        ╠═══════════════════════════════════════════════════════════════════════════╣
+        ║  1. Copiar un bloque <article class="project-card">...</article>          ║
+        ║  2. Cambiar los valores data-lang por nuevas claves únicas                ║
+        ║     Ejemplo: project_nuevo_title, project_nuevo_desc                      ║
+        ║  3. Cambiar el href del enlace <a> al URL del nuevo proyecto              ║
+        ║  4. Agregar las traducciones en JS/lang/es.json y JS/lang/en.json         ║
+        ║     Ejemplo en es.json:                                                   ║
+        ║       "project_nuevo_title": "Mi Nuevo Proyecto",                         ║
+        ║       "project_nuevo_desc": "Descripción del proyecto..."                 ║
+        ╚═══════════════════════════════════════════════════════════════════════════╝
+        -->
+        <section class="projects-section" id="PROYECTOS">
+            <div class="projects-header fade-up">
+                <h2 data-lang="projects_title">Proyectos recientes</h2>
+                <p class="projects-subtitle" data-lang="projects_subtitle">Explora algunos de mis trabajos más recientes
+                </p>
+            </div>
+            <div class="projects-grid" id="projectsContainer">
+                <!-- PROYECTO 1: Delivery Counter -->
+                <article class="project-card slide-right">
+                    <div class="project-card-inner">
+                        <div class="project-number">01</div>
+                        <div class="project-content">
+                            <h3 data-lang="project_delivery_title">Delivery Counter</h3>
+                            <p data-lang="project_delivery_desc">Herramienta de gestión logística para optimizar el
+                                flujo de trabajo de repartidores, con control preciso de pedidos y métricas en tiempo
+                                real.</p>
+                            <span class="project-tags" data-lang="project_delivery_tags">UX/UI Funcional • Real-time
+                                Tracking • Alta Visibilidad</span>
+                        </div>
+                        <a href="https://delivery-counter.vercel.app/" target="_blank" rel="noopener noreferrer"
+                            class="project-link">
+                            <span data-lang="btn_visit">Visitar</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M7 17L17 7" />
+                                <path d="M7 7h10v10" />
+                            </svg>
                         </a>
                     </div>
-                </div>
-                </div>
-            </article>
-            <a class="circleProject animation fade-in" target="_blank" href="https://congreso-de-cafe.vercel.app/"
-                style="background-image: url('./assets/imgs/project-1.png');"
-                aria-label="Ir al proyecto Congreso de Café"></a>
+                    <div class="project-glow"></div>
+                </article>
+                <!-- PROYECTO 2: Monster White -->
+                <article class="project-card slide-left">
+                    <div class="project-card-inner">
+                        <div class="project-number">02</div>
+                        <div class="project-content">
+                            <h3 data-lang="project_monster_title">Monster Energy Ultra White</h3>
+                            <p data-lang="project_monster_desc">Landing page de alto impacto visual que captura la
+                                esencia estética de Monster Ultra. Branding premium enfocado en frescura y estilo 'Zero
+                                Azúcar'.</p>
+                            <span class="project-tags" data-lang="project_monster_tags">Branding Visual • Diseño
+                                Minimalista • Conversión Directa</span>
+                        </div>
+                        <a href="https://monster-white.vercel.app/" target="_blank" rel="noopener noreferrer"
+                            class="project-link">
+                            <span data-lang="btn_visit">Visitar</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M7 17L17 7" />
+                                <path d="M7 7h10v10" />
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="project-glow"></div>
+                </article>
+            </div>
         </section>
         <!-- SECCIÓN #4 SOBRE MI -->
         <section class="sectionAboutMe flex" id="SOBREMI">
@@ -271,8 +309,7 @@
                             <span class="sr-only">(abre en nueva ventana)</span>
                         </a>
                         <!-- RED SOCIAL 2 INSTAGRAM -->
-                        <a href="https://www.instagram.com/sr.studio.cr" target="_blank"
-                            class="social2 flex animation">
+                        <a href="https://www.instagram.com/sr.studio.cr" target="_blank" class="social2 flex animation">
                             <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 20 20">
                                 <path fill="#D96523"
                                     d="M17 1H3c-1.1 0-2 .9-2 2v14c0 1.101.9 2 2 2h14c1.1 0 2-.899 2-2V3c0-1.1-.9-2-2-2M9.984 15.523a5.54 5.54 0 0 0 5.538-5.539c0-.338-.043-.664-.103-.984H17v7.216a.69.69 0 0 1-.693.69H3.693a.69.69 0 0 1-.693-.69V9h1.549c-.061.32-.104.646-.104.984a5.54 5.54 0 0 0 5.539 5.539M6.523 9.984a3.461 3.461 0 1 1 6.922 0a3.461 3.461 0 0 1-6.922 0M16.307 6h-1.615A.694.694 0 0 1 14 5.308V3.691c0-.382.31-.691.691-.691h1.615c.384 0 .694.309.694.691v1.616c0 .381-.31.693-.693.693" />

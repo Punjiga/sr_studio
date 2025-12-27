@@ -192,80 +192,9 @@ document.addEventListener('DOMContentLoaded', function () {
             window.scrollTo({ top: 0, behavior: "smooth" });
         });
     }
-    //------------------- BARRA PROYECTOS --------------------------
-    const radios = document.querySelectorAll('.radio-container input[name="project"]');
-    const glider = document.querySelector('.radio-container .glider');
-    radios.forEach((radio, index) => {
-        radio.addEventListener('change', () => {
-            if (radio.checked && glider) {
-                glider.style.transform = `translateY(${index * 100}%)`;
-            }
-        });
-    });
-    //------------------- CAMBIO DE PROYECTOS -------------------------
-    const titulo = document.getElementById("projectTitle");
-    const circle = document.querySelector(".circleProject");
-    const btn = document.getElementById("visitBtn");
-
-    let projectTimeout;
-
-    function updateProjectContent() {
-        const selectedRadio = document.querySelector("input[name='project']:checked");
-        if (!selectedRadio) return;
-
-        // Elementos para animar
-        const elementsToAnimate = [titulo, circle];
-
-        // Desvanecer (Fade out)
-        elementsToAnimate.forEach(el => { if (el) el.style.opacity = '0'; });
-
-        if (projectTimeout) clearTimeout(projectTimeout);
-
-        projectTimeout = setTimeout(() => {
-            // Helper para obtener texto o fallback
-            const getTitle = (key, fallback) => currentTextos[key] || fallback;
-
-            if (selectedRadio.id === "proj1") {
-                if (titulo) titulo.textContent = getTitle('project_1_title', "Congreso de Café");
-                if (circle) {
-                    circle.style.backgroundImage = "url('./assets/imgs/project-1.png')";
-                    circle.href = "https://congreso-de-cafe.vercel.app/";
-                }
-                if (btn) btn.href = "https://congreso-de-cafe.vercel.app/";
-            } else if (selectedRadio.id === "proj2") {
-                if (titulo) titulo.textContent = getTitle('project_2_title', "Fit Force");
-                if (circle) {
-                    circle.style.backgroundImage = "url('./assets/imgs/project-2.png')";
-                    circle.href = "https://fit-force-final.vercel.app/";
-                }
-                if (btn) btn.href = "https://fit-force-final.vercel.app/";
-            } else if (selectedRadio.id === "proj3") {
-                if (titulo) titulo.textContent = getTitle('project_3_title', "Bonfire Lit");
-                if (circle) {
-                    circle.style.backgroundImage = "url('./assets/imgs/project-3.png')";
-                    circle.href = "https://bonfire-lit.vercel.app/";
-                }
-                if (btn) btn.href = "https://bonfire-lit.vercel.app/";
-            } else if (selectedRadio.id === "proj4") {
-                if (titulo) titulo.textContent = getTitle('project_4_title', "Delivery Counter");
-                if (circle) {
-                    circle.style.backgroundImage = "url('./assets/imgs/project-4.png')";
-                    circle.href = "https://delivery-counter.vercel.app/";
-                }
-                if (btn) btn.href = "https://delivery-counter.vercel.app/";
-            }
-            // Aparecer (Fade in)
-            elementsToAnimate.forEach(el => { if (el) el.style.opacity = '1'; });
-        }, 300);
-    }
-
-    document.querySelectorAll("input[name='project']").forEach(input => {
-        input.addEventListener("change", updateProjectContent);
-    });
-
-    if (titulo) titulo.textContent = "Congreso de Café";
-    if (circle) circle.style.backgroundImage = "url('./assets/imgs/project-1.png')";
-    if (btn) btn.href = "https://congreso-de-cafe.vercel.app/";
+    //------------------- SECCIÓN PROYECTOS -------------------------
+    // Los proyectos ahora usan cards estáticas con data-lang
+    // El cambio de idioma se maneja automáticamente por cargarTextosDelIdioma()
     //------------------- FORMULARIO -------------------------
     if (window.emailjs) {
         emailjs.init("_SC3QrHOmpfnC4f8J");
