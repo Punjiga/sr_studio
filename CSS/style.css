@@ -1155,7 +1155,8 @@ footer nav ul li a:hover {
     background: transparent;
     border: 2px solid var(--color-accent-primary);
     border-radius: 50px;
-    width: fit-content;
+    width: 170px;
+    justify-content: center;
     transition: all 0.3s ease;
 }
 
