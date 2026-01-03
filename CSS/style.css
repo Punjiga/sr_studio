@@ -1037,12 +1037,67 @@ footer nav ul li a:hover {
     max-width: 1100px;
 }
 
+/* Center the first card on the top row */
+.projects-grid .project-card:first-child {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc(50% - 20px);
+    /* 50% width minus half the gap */
+    max-width: 530px;
+    /* Half of max-width 1100 minus gap roughly */
+}
+
+/* Coming Soon Text */
+.coming-soon-container {
+    margin-top: 30px;
+    padding: 20px;
+}
+
+.coming-soon-text {
+    font-family: var(--fuente-ctas-span);
+    font-size: 24px;
+    color: var(--color-text-muted);
+    letter-spacing: 2px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.coming-soon-text::after {
+    content: '...';
+    display: inline-block;
+    width: 24px;
+    text-align: left;
+    animation: dots-blink 1.5s infinite;
+}
+
+@keyframes dots-blink {
+
+    0%,
+    20% {
+        content: '';
+    }
+
+    40% {
+        content: '.';
+    }
+
+    60% {
+        content: '..';
+    }
+
+    80%,
+    100% {
+        content: '...';
+    }
+}
+
 /* Project Card */
 .project-card {
     position: relative;
     border-radius: 20px;
     overflow: hidden;
     transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    height: 100%;
 }
 
 .project-card-inner {
@@ -1055,7 +1110,9 @@ footer nav ul li a:hover {
     display: flex;
     flex-direction: column;
     gap: 25px;
-    min-height: 320px;
+    height: 100%;
+    min-height: 420px;
+    /* Increased to accommodate 22 words plus tags comfortably */
     transition: all 0.4s ease;
 }
 
@@ -1748,6 +1805,12 @@ footer nav {
         grid-template-columns: 1fr;
         gap: 25px;
         max-width: 500px;
+    }
+
+    .projects-grid .project-card:first-child {
+        grid-column: auto;
+        width: 100%;
+        max-width: none;
     }
 
     .project-card-inner {
