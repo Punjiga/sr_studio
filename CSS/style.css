@@ -1034,7 +1034,7 @@ footer nav ul li a:hover {
     grid-template-columns: repeat(3, 1fr);
     gap: 40px;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1400px;
     justify-content: center;
 }
 
