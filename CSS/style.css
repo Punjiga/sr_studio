@@ -1031,20 +1031,11 @@ footer nav ul li a:hover {
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 40px;
     width: 100%;
-    max-width: 1100px;
-}
-
-/* Center the first card on the top row */
-.projects-grid .project-card:first-child {
-    grid-column: 1 / -1;
-    justify-self: center;
-    width: calc(50% - 20px);
-    /* 50% width minus half the gap */
-    max-width: 530px;
-    /* Half of max-width 1100 minus gap roughly */
+    max-width: 1200px;
+    justify-content: center;
 }
 
 /* Coming Soon Text */
@@ -1797,14 +1788,14 @@ footer nav {
 
     /* Projects responsive 768px */
     .projects-section {
-        padding: 60px 30px;
-        gap: 40px;
+        padding: 50px 20px !important;
     }
 
     .projects-grid {
-        grid-template-columns: 1fr;
-        gap: 25px;
-        max-width: 500px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        max-width: 900px;
+        justify-content: center;
     }
 
     .projects-grid .project-card:first-child {
@@ -1995,7 +1986,9 @@ footer nav {
     }
 
     .projects-grid {
+        grid-template-columns: 1fr;
         gap: 20px;
+        max-width: 450px;
     }
 
     .project-card-inner {
