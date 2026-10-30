@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://srstudio.vercel.app/sitemap.xml
