@@ -105,28 +105,80 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
     //------------------- FORMULARIO -------------------------
-    if (window.emailjs) {
-        emailjs.init("_SC3QrHOmpfnC4f8J");
-    }
     const form = document.getElementById("mi-form");
     const nombre = document.getElementById("nombre");
     const email = document.getElementById("correo");
     const mensaje = document.getElementById("mensaje");
     const enviarBtn = form ? form.querySelector("button[type='submit']") : null;
+    const estadoContacto = document.getElementById('contact-status');
+    const enlaceCorreo = document.getElementById('email-contact');
+    const enlacesWhatsApp = document.querySelectorAll('a[href^="https://wa.me/"]');
+    const correoDestino = 'stevenrojasrivera182@gmail.com';
+    const numeroWhatsApp = '50689862668';
+    let enviando = false;
+    let ultimoMensajeEnviado = null;
+    let textosActuales = {};
+    const textosContactoPorDefecto = {
+        btn_send: 'Enviar por correo',
+        btn_sending: 'Enviando…',
+        form_invalid: 'Revisá tu nombre, un correo válido y un mensaje de al menos 10 caracteres.',
+        form_sending: 'Enviando tu mensaje…',
+        form_success: 'Tu mensaje se envió por correo. Si querés compartirlo también por WhatsApp, usá el botón de abajo y pulsá Enviar.',
+        form_error: 'No pudimos confirmar el envío. Tu mensaje sigue aquí: podés reintentar o usar el correo o WhatsApp de abajo.',
+        contact_greeting: 'Hola, me interesa una página web.',
+        contact_name: 'Nombre',
+        contact_email: 'Correo',
+        contact_message: 'Mensaje'
+    };
+    function textoContacto(clave) {
+        return textosActuales[clave] || textosContactoPorDefecto[clave];
+    }
+    function leerContacto() {
+        return {
+            name: nombre ? nombre.value.trim() : '',
+            email: email ? email.value.trim() : '',
+            message: mensaje ? mensaje.value.trim() : ''
+        };
+    }
+    function actualizarEnlacesContacto() {
+        const actuales = leerContacto();
+        const datos = actuales.name || actuales.email || actuales.message
+            ? actuales : ultimoMensajeEnviado;
+        const texto = datos ? [
+            'SR Studio',
+            datos.name ? `${textoContacto('contact_name')}: ${datos.name}` : '',
+            datos.email ? `${textoContacto('contact_email')}: ${datos.email}` : '',
+            datos.message ? `${textoContacto('contact_message')}:\n${datos.message}` : ''
+        ].filter(Boolean).join('\n\n') : textoContacto('contact_greeting');
+        enlacesWhatsApp.forEach(enlace => {
+            enlace.href = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(texto)}`;
+        });
+        if (enlaceCorreo) {
+            enlaceCorreo.href = `mailto:${correoDestino}?subject=${encodeURIComponent('[SR Studio] Nuevo contacto')}&body=${encodeURIComponent(texto)}`;
+        }
+    }
+    function mostrarEstadoContacto(clave, estado) {
+        if (!estadoContacto) return;
+        estadoContacto.dataset.message = clave;
+        estadoContacto.dataset.state = estado;
+        estadoContacto.textContent = textoContacto(clave);
+    }
     function validarEmail(email) {
         const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return re.test(email);
     }
     function validarForm() {
         if (!nombre || !email || !mensaje) return false;
-        if (nombre.value.trim().length < 2) return false;
-        if (!validarEmail(email.value.trim())) return false;
-        if (mensaje.value.trim().length < 10) return false;
+        if (nombre.value.trim().length < 2 || nombre.value.length > 100) return false;
+        if (!validarEmail(email.value.trim()) || email.value.length > 254) return false;
+        if (mensaje.value.trim().length < 10 || mensaje.value.length > 3000) return false;
         return true;
     }
     function actualizarBtn() {
         if (!enviarBtn) return;
-        if (validarForm()) {
+        const etiqueta = enviarBtn.querySelector('.label');
+        if (etiqueta) etiqueta.textContent = textoContacto(enviando ? 'btn_sending' : 'btn_send');
+        if (validarForm() && !enviando) {
             enviarBtn.disabled = false;
             enviarBtn.style.opacity = "1";
             enviarBtn.style.cursor = "pointer";
@@ -136,47 +188,62 @@ document.addEventListener('DOMContentLoaded', function () {
             enviarBtn.style.cursor = "not-allowed";
         }
     }
-    if (enviarBtn) {
-        enviarBtn.disabled = true;
-        enviarBtn.style.opacity = "0.5";
-        enviarBtn.style.cursor = "not-allowed";
-    }
+    actualizarBtn();
+    actualizarEnlacesContacto();
     [nombre, email, mensaje].forEach(input => {
         if (input) {
-            input.addEventListener("input", actualizarBtn);
+            input.addEventListener("input", () => {
+                actualizarBtn();
+                actualizarEnlacesContacto();
+            });
         }
     });
     if (form) {
-        form.addEventListener("submit", (e) => {
+        form.addEventListener("submit", async (e) => {
             e.preventDefault();
+            if (enviando) return;
             if (!validarForm()) {
-                Swal.fire({
-                    title: 'Formulario incompleto',
-                    html: 'Revisa que tu <b>nombre</b> tenga al menos 2 caracteres, tu <b>email</b> sea válido y el <b>mensaje</b> tenga al menos 10 caracteres.',
-                    icon: 'error',
-                    confirmButtonColor: '#E8E8E8'
-                });
+                mostrarEstadoContacto('form_invalid', 'error');
                 return;
             }
-            emailjs.sendForm("service_imnngtd", "template_gj5v8t2", form)
-                .then(() => {
-                    Swal.fire({
-                        title: 'Mensaje enviado',
-                        html: 'Te responderé en <span style="color: #E8E8E8; font-weight: bold;">menos de 24 horas</span>.',
-                        icon: 'success',
-                        confirmButtonColor: '#E8E8E8'
-                    });
-                    form.reset();
-                    actualizarBtn();
-                })
-                .catch(() => {
-                    Swal.fire({
-                        title: 'Error al enviar',
-                        text: 'Intenta nuevamente más tarde.',
-                        icon: 'error',
-                        confirmButtonColor: '#E8E8E8'
-                    });
+            const datosFormulario = new FormData(form);
+            if (datosFormulario.get('botcheck')) return;
+            const contacto = leerContacto();
+            datosFormulario.set('name', contacto.name);
+            datosFormulario.set('email', contacto.email);
+            datosFormulario.set('message', contacto.message);
+            datosFormulario.set('replyto', contacto.email);
+            enviando = true;
+            form.setAttribute('aria-busy', 'true');
+            [nombre, email, mensaje].forEach(input => input.disabled = true);
+            actualizarBtn();
+            mostrarEstadoContacto('form_sending', 'sending');
+            const controlador = new AbortController();
+            const limite = setTimeout(() => controlador.abort(), 20000);
+            try {
+                const respuesta = await fetch(form.action, {
+                    method: 'POST',
+                    headers: { Accept: 'application/json' },
+                    body: datosFormulario,
+                    signal: controlador.signal
                 });
+                const resultado = await respuesta.json();
+                if (!respuesta.ok || resultado.success !== true) {
+                    throw new Error('Contact delivery was not confirmed');
+                }
+                ultimoMensajeEnviado = contacto;
+                form.reset();
+                actualizarEnlacesContacto();
+                mostrarEstadoContacto('form_success', 'success');
+            } catch {
+                mostrarEstadoContacto('form_error', 'error');
+            } finally {
+                clearTimeout(limite);
+                enviando = false;
+                form.setAttribute('aria-busy', 'false');
+                [nombre, email, mensaje].forEach(input => input.disabled = false);
+                actualizarBtn();
+            }
         });
     }
     //------------------- CAMBIO DE IDIOMA -------------------------
@@ -220,6 +287,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 return res.json();
             })
             .then(textos => {
+                textosActuales = textos;
                 // Traducir elementos con data-lang
                 elementosTraducibles.forEach(el => {
                     const clave = el.getAttribute('data-lang');
@@ -239,6 +307,11 @@ document.addEventListener('DOMContentLoaded', function () {
                     if (input && textos[item.key]) {
                         input.placeholder = textos[item.key];
                     }
+                }
+                actualizarBtn();
+                actualizarEnlacesContacto();
+                if (estadoContacto && estadoContacto.dataset.message) {
+                    estadoContacto.textContent = textoContacto(estadoContacto.dataset.message);
                 }
             })
             .catch(err => {

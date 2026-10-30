@@ -63,8 +63,18 @@
     "form_email_placeholder": "Your email",
     "form_message_label": "Tell me about your project",
     "form_message_placeholder": "I need a website for...",
-    "btn_send": "Send",
+    "btn_send": "Send by email",
     "whatsapp_btn": "Message me on WhatsApp",
     "footer_quote": "\"Your online success starts with a great website.\"",
-    "footer_copyright": "© 2026 SR Studio – All rights reserved"
+    "footer_copyright": "© 2026 SR Studio – All rights reserved",
+    "btn_sending": "Sending…",
+    "form_invalid": "Check your name, a valid email address and a message of at least 10 characters.",
+    "form_sending": "Sending your message…",
+    "form_success": "Your message was sent by email. To also share it on WhatsApp, use the button below and tap Send.",
+    "form_error": "We could not confirm delivery. Your message is still here: you can try again or use the email or WhatsApp links below.",
+    "contact_greeting": "Hello, I am interested in a website.",
+    "contact_name": "Name",
+    "contact_email": "Email",
+    "contact_message": "Message",
+    "contact_channels_note": "You can also share what you wrote on WhatsApp. Review the prepared message and tap Send."
 }

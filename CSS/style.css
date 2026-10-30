@@ -1107,6 +1107,44 @@ footer nav ul li a:hover {
     font-size: 22px;
 }
 
+.contact-details {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px 28px;
+    max-width: 100%;
+    text-align: center;
+    font-family: var(--fuente-p);
+}
+
+.contact-details a {
+    overflow-wrap: anywhere;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.contact-details a:hover,
+.contact-details a:focus-visible {
+    color: var(--color-text-primary);
+}
+
+.sectionContact .contact-channels-note {
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: center;
+    margin-top: -20px;
+}
+
+.sectionContact .contact-status {
+    width: 100%;
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.contact-status:empty {
+    display: none;
+}
+
 .sectionContact form {
     flex-direction: column;
     background: var(--color-surface);

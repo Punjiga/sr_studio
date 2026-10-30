@@ -63,8 +63,18 @@
     "form_email_placeholder": "Tu correo",
     "form_message_label": "Contame sobre tu proyecto",
     "form_message_placeholder": "Necesito una página web para...",
-    "btn_send": "Enviar",
+    "btn_send": "Enviar por correo",
     "whatsapp_btn": "Escribime por WhatsApp",
     "footer_quote": "\"Tu éxito online empieza con una buena página web.\"",
-    "footer_copyright": "© 2026 SR Studio – Todos los derechos reservados"
+    "footer_copyright": "© 2026 SR Studio – Todos los derechos reservados",
+    "btn_sending": "Enviando…",
+    "form_invalid": "Revisá tu nombre, un correo válido y un mensaje de al menos 10 caracteres.",
+    "form_sending": "Enviando tu mensaje…",
+    "form_success": "Tu mensaje se envió por correo. Si querés compartirlo también por WhatsApp, usá el botón de abajo y pulsá Enviar.",
+    "form_error": "No pudimos confirmar el envío. Tu mensaje sigue aquí: podés reintentar o usar el correo o WhatsApp de abajo.",
+    "contact_greeting": "Hola, me interesa una página web.",
+    "contact_name": "Nombre",
+    "contact_email": "Correo",
+    "contact_message": "Mensaje",
+    "contact_channels_note": "También podés compartir lo que escribiste por WhatsApp. Se abrirá el mensaje para que lo revisés y presionés Enviar."
 }
