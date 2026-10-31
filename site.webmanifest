@@ -7,6 +7,11 @@
   "theme_color": "#f0eee7",
   "icons": [
     {
+      "src": "/assets/sr-mark.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
       "src": "/favicon.png",
       "sizes": "64x64",
       "type": "image/png"

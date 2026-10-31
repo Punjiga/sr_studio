@@ -6,7 +6,8 @@ Portafolio de Steven Rojas · diseño y desarrollo web en Costa Rica.
 - `index.html`: contenido principal, metadatos, enlaces y formularios.
 - `styles/site.css`: sistema visual y diseño adaptable.
 - `scripts/site.js`: menú, animaciones no esenciales y preparación del mensaje de WhatsApp.
-- `favicon.png`: monograma SR optimizado (aportado por el propietario).
+- `assets/sr-mark.svg`: logo vectorial basado en el monograma seleccionado (nítido incluso ampliado).
+- `favicon.png`: icono PNG alternativo.
 - `robots.txt`, `sitemap.xml`, `site.webmanifest`: descubrimiento y acceso.
 
 Sin frameworks ni bibliotecas JavaScript de terceros. La página es estática y puede desplegarse en Vercel u hospedaje similar.
@@ -27,3 +28,6 @@ Antes de la limpieza se conservó el histórico de Git y una rama de respaldo. P
 1. Abrir menú y formulario en móvil real; verificar todos los enlaces externos.
 2. Ejecutar PageSpeed Insights/Lighthouse y comprobar teclado y lectores de pantalla.
 3. Confirmar Vercel, DNS y capacidad de entrega a WhatsApp en condiciones reales.
+
+## Decisión comercial · octubre de 2026
+Mantener los precios publicados desde ₡59.000, ₡119.000 y ₡219.000 mientras se comprueba el tiempo real de cada proyecto y la conversión de consultas. Los competidores consultados ofrecen muchas landing pages desde ₡150.000, pero los paquetes no son equivalentes; no basar una reducción únicamente en los rechazos recibidos. Antes de invertir en publicidad, probar el sitio y la consulta desde un celular.

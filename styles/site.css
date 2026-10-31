@@ -315,7 +315,7 @@ html{scroll-padding-top:110px}
 .logo-mark{width:43px;height:43px;border:0;background:transparent;display:grid;place-items:center;border-radius:0}
 .logo-mark img{display:block;max-width:40px;max-height:40px;object-fit:contain}
 .footer-brand{display:flex;align-items:center;gap:14px}.footer-brand>img{width:58px;height:58px;object-fit:contain}
-.about-portrait::after{content:"";position:absolute;top:44%;left:50%;width:min(60%,280px);height:200px;transform:translate(-50%,-50%) rotate(-8deg);background:url("/favicon.png") center/contain no-repeat;color:transparent;font-size:0}
+.about-portrait::after{content:"";position:absolute;top:44%;left:50%;width:min(60%,280px);height:200px;transform:translate(-50%,-50%) rotate(-8deg);background:url("/assets/sr-mark.svg") center/contain no-repeat;color:transparent;font-size:0}
 .more-projects-heading{display:flex;align-items:end;justify-content:space-between;gap:25px;margin:78px 0 26px;border-top:1px solid var(--stroke);padding-top:32px}
 .more-projects-heading h3{font:700 clamp(30px,3.8vw,53px)/1.1 'Space Grotesk',sans-serif;letter-spacing:-.06em;margin:14px 0 0}
 .more-projects-heading h3 em{font:italic 400 1.15em 'Instrument Serif',serif}
@@ -409,3 +409,10 @@ button,summary{cursor:pointer}
 @media(max-width:800px){.luna-type strong{font-size:clamp(55px,10vw,92px)}.tropical-brand strong{font-size:clamp(43px,8vw,72px)}}
 @media(max-width:620px){.luna-type strong{font-size:clamp(60px,17vw,90px)}.luna-chip,.tropical-tag{display:none}.tropical-brand strong{font-size:clamp(49px,12vw,75px)}.project-luna,.project-tropical{height:340px}}
 @media(prefers-reduced-motion:reduce){.project-visual{transition:none!important}.project-card>a:hover .project-visual{filter:none}}
+
+/* Identidad SR Studio nítida en pantallas retina */
+.about-portrait::after{background-image:url("/assets/sr-mark.svg");background-size:contain}
+.logo-mark img,.footer-brand>img{image-rendering:auto}
+.pricing-clarity{max-width:850px;margin:-16px 0 28px;font:400 14px/1.65 'DM Sans',sans-serif;color:#41473c}
+.pricing-clarity strong{color:var(--ink)}
+@media(max-width:620px){.pricing-clarity{font-size:13px;margin-top:0}}
