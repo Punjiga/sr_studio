@@ -384,3 +384,28 @@ button,summary{cursor:pointer}
 .footer-brand>img{width:44px;height:44px}.footer-brand .footer-big{font-size:clamp(42px,10vw,65px)}
 }
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}.mini-project:hover{transform:none}}
+
+
+/* Tres casos seleccionados. Ilustraciones construidas en CSS, sin imágenes externas. */
+.project-visit{display:inline-flex;align-items:center;gap:8px;margin-top:13px;border-bottom:1px solid currentColor;padding-bottom:4px;text-decoration:none;font:700 12px/1.5 'Space Grotesk',sans-serif;color:var(--ink)}
+.project-visit:focus-visible{outline:3px solid #2584c3;outline-offset:4px}
+.project-transparency{max-width:710px;font-size:12px;line-height:1.7;color:var(--muted);margin:24px 0 0}
+.project-luna{background:#e7d0cb;color:#4d3340;padding:28px;isolation:isolate}
+.visual-kicker{display:flex;justify-content:space-between;position:relative;z-index:3;gap:9px;font:700 11px/1.4 'Space Grotesk',sans-serif;letter-spacing:.12em}
+.luna-arc{position:absolute;right:6%;top:16%;width:53%;height:70%;border-radius:50% 50% 15% 15%;border:17px solid #8d6378;transform:rotate(12deg);opacity:.78}
+.luna-type{position:absolute;left:7%;bottom:12%;display:flex;flex-direction:column;z-index:2}
+.luna-type>span{font:700 16px 'Space Grotesk',sans-serif;letter-spacing:.35em}
+.luna-type strong{font:700 clamp(55px,7.5vw,105px)/.93 'Space Grotesk',sans-serif;letter-spacing:-.095em}
+.luna-type em{font:italic 26px 'Instrument Serif',serif;margin-top:10px}
+.luna-chip{position:absolute;right:6%;bottom:10%;border:1px solid currentColor;padding:10px 12px;font:700 10px 'Space Grotesk',sans-serif}
+.project-tropical{background:#f8cf50;color:#2b2a20;padding:27px;isolation:isolate}
+.project-tropical::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 100% 0%,rgba(251,91,64,.35),transparent 45%)}
+.tropical-orb{position:absolute;top:10%;right:7%;width:47%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 30% 25%,#fff0b4 0 10%,#f8844d 30%,#dc473e 73%);box-shadow:16px 16px 0 #282c22;transform:rotate(-13deg);z-index:-1}
+.tropical-brand{position:absolute;left:7%;bottom:13%;z-index:2}
+.tropical-brand>span{display:block;margin-bottom:9px;font:700 10px 'Space Grotesk',sans-serif;letter-spacing:.2em}
+.tropical-brand strong{display:block;font:800 clamp(42px,5.2vw,73px)/.89 'Space Grotesk',sans-serif;letter-spacing:-.09em}
+.tropical-tag{position:absolute;bottom:11%;right:7%;font:700 11px 'Space Grotesk',sans-serif}
+.project-third .project-description .project-type{margin-top:4px}
+@media(max-width:800px){.luna-type strong{font-size:clamp(55px,10vw,92px)}.tropical-brand strong{font-size:clamp(43px,8vw,72px)}}
+@media(max-width:620px){.luna-type strong{font-size:clamp(60px,17vw,90px)}.luna-chip,.tropical-tag{display:none}.tropical-brand strong{font-size:clamp(49px,12vw,75px)}.project-luna,.project-tropical{height:340px}}
+@media(prefers-reduced-motion:reduce){.project-visual{transition:none!important}.project-card>a:hover .project-visual{filter:none}}
