@@ -13,6 +13,10 @@
       const items=document.querySelectorAll('.reveal');
       const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       if(!reducedMotion && 'IntersectionObserver' in window){const io=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');io.unobserve(entry.target)}})},{threshold:.08,rootMargin:'0px 0px -20px 0px'});items.forEach(el=>io.observe(el))}else{items.forEach(el=>el.classList.add('visible'))}
+      document.querySelectorAll('[data-plan]').forEach(link=>link.addEventListener('click',()=>{
+        const select=document.getElementById('tipo');
+        if(select && [...select.options].some(option=>option.value===link.dataset.plan)) select.value=link.dataset.plan;
+      }));
       document.getElementById('current-year').textContent=String(new Date().getFullYear());
       document.getElementById('brief-form').addEventListener('submit',(event)=>{
         event.preventDefault();
