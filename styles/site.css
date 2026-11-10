@@ -440,3 +440,9 @@ button,summary{cursor:pointer}
 .contact-channels .button{min-height:48px;white-space:normal;text-align:center}
 .contact-channel-help{font-size:13px!important;line-height:1.6!important;color:var(--ink)!important;opacity:1!important;margin-top:14px!important;max-width:470px}
 @media(max-width:620px){.contact-channels{align-items:stretch;flex-direction:column}.contact-channels .button{width:100%}.form-submit .button{white-space:normal;text-align:center;min-height:48px}}
+
+
+/* Portadas de proyectos: capturas reales completas, sin recorte. */
+.project-visual.project-screenshot{height:auto!important;padding:12px;background:var(--ink);border:1px solid var(--stroke)}
+.project-screenshot img{display:block;width:100%;height:auto;border-radius:3px}
+@media(max-width:620px){.project-visual.project-screenshot{padding:8px}}
