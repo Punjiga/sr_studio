@@ -433,3 +433,10 @@ button,summary{cursor:pointer}
 .pilot-offer .pilot-button{white-space:nowrap;justify-content:center;min-height:52px}
 @media(max-width:800px){.pilot-offer{grid-template-columns:1fr;gap:20px}.pilot-offer .pilot-button{width:100%;white-space:normal;justify-content:space-between}}
 @media(max-width:620px){.pilot-offer{padding:22px 20px}.pilot-offer p{font-size:13px}.pilot-offer h3{font-size:27px}}
+
+
+/* Canales visibles de consulta; WhatsApp sigue siendo opcional. */
+.contact-channels{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:30px}
+.contact-channels .button{min-height:48px;white-space:normal;text-align:center}
+.contact-channel-help{font-size:13px!important;line-height:1.6!important;color:var(--muted);margin-top:14px!important;max-width:470px}
+@media(max-width:620px){.contact-channels{align-items:stretch;flex-direction:column}.contact-channels .button{width:100%}.form-submit .button{white-space:normal;text-align:center;min-height:48px}}

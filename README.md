@@ -31,3 +31,11 @@ Antes de la limpieza se conservó el histórico de Git y una rama de respaldo. P
 
 ## Decisión comercial · octubre de 2026
 Mantener los precios publicados desde ₡59.000, ₡119.000 y ₡219.000 mientras se comprueba el tiempo real de cada proyecto y la conversión de consultas. Los competidores consultados ofrecen muchas landing pages desde ₡150.000, pero los paquetes no son equivalentes; no basar una reducción únicamente en los rechazos recibidos. Antes de invertir en publicidad, probar el sitio y la consulta desde un celular.
+
+
+## Actualización comercial · 10 de noviembre de 2026
+- Se conservan los cuatro precios de diseño y desarrollo desde ₡35.000, ₡59.000, ₡119.000 y ₡219.000.
+- Dominio y hospedaje se cotizan aparte. La propuesta escrita debe detallar el total del primer año, las renovaciones, el alcance y el plazo antes de contratar.
+- Instagram y correo son vías visibles de consulta; WhatsApp prepara un mensaje y exige que el visitante confirme el envío. No hay almacenamiento de formularios.
+- Kyomu se presenta como negocio real. Estética Luna y Tropical Pulse permanecen identificados como prototipos; Tropical Pulse no procesa pagos reales.
+- Se unifica el voseo y se elimina el símbolo de marca registrada del nombre.
