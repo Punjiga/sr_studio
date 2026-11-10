@@ -438,5 +438,5 @@ button,summary{cursor:pointer}
 /* Canales visibles de consulta; WhatsApp sigue siendo opcional. */
 .contact-channels{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:30px}
 .contact-channels .button{min-height:48px;white-space:normal;text-align:center}
-.contact-channel-help{font-size:13px!important;line-height:1.6!important;color:var(--muted);margin-top:14px!important;max-width:470px}
+.contact-channel-help{font-size:13px!important;line-height:1.6!important;color:var(--ink)!important;opacity:1!important;margin-top:14px!important;max-width:470px}
 @media(max-width:620px){.contact-channels{align-items:stretch;flex-direction:column}.contact-channels .button{width:100%}.form-submit .button{white-space:normal;text-align:center;min-height:48px}}
