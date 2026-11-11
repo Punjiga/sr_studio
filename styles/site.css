@@ -483,3 +483,17 @@ button,summary{cursor:pointer}
 .additional-project-copy p{font:400 12px/1.65 'DM Sans',sans-serif;color:var(--muted);margin:0;max-width:360px}
 @media(max-width:620px){.more-projects-grid{gap:29px}.additional-project-copy{padding-top:14px}.additional-project-copy h4{font-size:27px}.additional-project-copy p{max-width:100%;font-size:13px}}
 @media(prefers-reduced-motion:reduce){.additional-project-image{transition:none}}
+
+/* Selección en grupos de tres: control nativo, accesible y sin JavaScript. */
+.project-gallery{margin-top:34px;border-top:1px solid var(--stroke);border-bottom:1px solid var(--stroke)}
+.project-gallery>summary{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:21px 0;list-style:none;cursor:pointer;font:700 15px/1.5 'Space Grotesk',sans-serif}
+.project-gallery>summary::-webkit-details-marker{display:none}
+.gallery-label-open{display:none}
+.project-gallery[open]>summary .gallery-label-closed{display:none}
+.project-gallery[open]>summary .gallery-label-open{display:inline}
+.gallery-toggle{display:block;font:400 28px/1 'DM Sans',sans-serif}
+.project-gallery[open]>summary .gallery-toggle{transform:rotate(45deg)}
+.project-gallery-content{padding:3px 0 29px}
+.project-gallery .more-projects-heading{margin:8px 0 23px;padding-top:0;border-top:0}
+.project-gallery .more-projects-heading h3{font-size:clamp(29px,3.3vw,43px)}
+@media(max-width:620px){.project-gallery{margin-top:26px}.project-gallery>summary{font-size:14px;padding:18px 0}.project-gallery .more-projects-heading{margin-top:5px}.project-gallery .more-projects-heading>p{font-size:13px}}

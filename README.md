@@ -39,7 +39,7 @@ No se compromete alojamiento ilimitado, integraciones gratuitas, soporte perpetu
 
 ## Proyectos visibles
 
-Se muestran nueve proyectos: tres destacados y seis muestras adicionales con capturas reales completas, sin recortar la interfaz. Cada captura conserva sus dimensiones originales para reducir saltos de contenido al cargar.
+Se seleccionan seis proyectos por su relevancia y presentación actual. Kyomu, Estética Luna y Tropical Pulse están visibles al entrar. Un control nativo `details/summary`, cerrado inicialmente, muestra otros tres: Dýnamis, Monster White y PAASAU. El texto cambia entre «Ver 3 proyectos más» y «Ver menos proyectos» mediante CSS. Funciona sin JavaScript, permite teclado y reduce la extensión inicial del sitio. Las capturas adicionales usan carga diferida.
 
 | Proyecto | Clasificación | Enlace |
 |---|---|---|
@@ -48,10 +48,9 @@ Se muestran nueve proyectos: tres destacados y seis muestras adicionales con cap
 | Tropical Pulse | Prototipo, sin pagos reales | https://tropical-pulse.vercel.app/ |
 | Dýnamis | Prototipo de motocross | https://dynamis-five.vercel.app/ |
 | Monster White | Concepto independiente, sin relación comercial con Monster | https://monster-white.vercel.app/ |
-| FitForce | Proyecto académico | https://fit-force-final.vercel.app/ |
-| Harper’s Café | Proyecto académico de cafetería ficticia | https://harpers-cafe.vercel.app/ |
-| English Practice Hub | Proyecto personal | https://english-practice-hub.vercel.app/ |
 | PAASAU | Proyecto personal en desarrollo | https://paasau.vercel.app/ |
+
+Se retiraron del escaparate FitForce, Harper’s Café y English Practice Hub por la selección comercial actual; no se borraron repositorios ni capturas. El enlace general a GitHub permite explorar el resto del trabajo. Las seis capturas visibles conservan su proporción y muestran interfaces reales completas.
 
 Las demostraciones no representan clientes contratantes ni equivalen automáticamente a uno de los paquetes publicados. Los proyectos de aplicaciones muestran capacidades adicionales; un panel, una cuenta de usuario o funciones similares requieren una cotización propia.
 
