@@ -469,31 +469,25 @@ button,summary{cursor:pointer}
 @media(max-width:800px){.pricing-grid{grid-template-columns:1fr}.pricing-card,.pricing-featured{padding:25px;transform:none;box-shadow:none}.pricing-featured{border:3px solid #d9fb75}.pricing-card>p{min-height:0;max-width:460px}.plan-label{min-height:0;font-size:10px}.pricing-card h3{font-size:34px;margin-top:20px}.price{font-size:49px}.pricing-card .button{font-size:12px}.plan-details{grid-template-columns:1fr 1fr;gap:20px}.plan-details dt{font-size:13px}.plan-details dd{font-size:12px}.plan-inclusions{display:block;margin-bottom:24px}.plan-inclusions>p{margin-top:8px}.plan-renewal{margin-top:25px}}
 @media(max-width:480px){.pricing-heading h2{font-size:40px}.pricing-card,.pricing-featured{padding:24px 21px}.plan-details{grid-template-columns:1fr;gap:17px}.plan-renewal{display:block}.plan-renewal>a{display:inline-block;margin-top:14px}.plan-inclusions>p{font-size:12px}}
 
-/* Galería ampliada: interfaces originales completas y etiquetas transparentes. */
-.more-projects-grid{gap:26px 18px;align-items:start}
-.additional-project{min-width:0}
-.additional-project-link{display:block;color:var(--ink);text-decoration:none}
-.additional-project-image{padding:6px;background:var(--ink);border-radius:4px;border:1px solid var(--stroke);overflow:hidden;transition:filter .2s ease}
-.additional-project-image img{display:block;width:100%;height:auto;border-radius:2px}
-.additional-project-link:hover .additional-project-image{filter:brightness(.94)}
-.additional-project-copy{padding:16px 2px 0}
-.additional-project-type{display:inline-block;font:700 9px/1.5 'Space Grotesk',sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#4d5647}
-.additional-project-copy h4{display:flex;align-items:center;justify-content:space-between;gap:10px;font:700 clamp(21px,2.2vw,29px)/1.1 'Space Grotesk',sans-serif;letter-spacing:-.05em;margin:9px 0 10px}
-.additional-project-copy h4>span{font-size:19px;flex-shrink:0}
-.additional-project-copy p{font:400 12px/1.65 'DM Sans',sans-serif;color:var(--muted);margin:0;max-width:360px}
-@media(max-width:620px){.more-projects-grid{gap:29px}.additional-project-copy{padding-top:14px}.additional-project-copy h4{font-size:27px}.additional-project-copy p{max-width:100%;font-size:13px}}
-@media(prefers-reduced-motion:reduce){.additional-project-image{transition:none}}
-
-/* Selección en grupos de tres: control nativo, accesible y sin JavaScript. */
-.project-gallery{margin-top:34px;border-top:1px solid var(--stroke);border-bottom:1px solid var(--stroke)}
-.project-gallery>summary{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:21px 0;list-style:none;cursor:pointer;font:700 15px/1.5 'Space Grotesk',sans-serif}
-.project-gallery>summary::-webkit-details-marker{display:none}
-.gallery-label-open{display:none}
-.project-gallery[open]>summary .gallery-label-closed{display:none}
-.project-gallery[open]>summary .gallery-label-open{display:inline}
-.gallery-toggle{display:block;font:400 28px/1 'DM Sans',sans-serif}
-.project-gallery[open]>summary .gallery-toggle{transform:rotate(45deg)}
-.project-gallery-content{padding:3px 0 29px}
-.project-gallery .more-projects-heading{margin:8px 0 23px;padding-top:0;border-top:0}
-.project-gallery .more-projects-heading h3{font-size:clamp(29px,3.3vw,43px)}
-@media(max-width:620px){.project-gallery{margin-top:26px}.project-gallery>summary{font-size:14px;padding:18px 0}.project-gallery .more-projects-heading{margin-top:5px}.project-gallery .more-projects-heading>p{font-size:13px}}
+/* Selección visible: seis muestras compactas, sin controles que oculten proyectos. */
+#proyectos{padding:90px 0}
+.portfolio-intro{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:30px}
+.portfolio-intro p{max-width:590px;font:400 14px/1.65 'DM Sans',sans-serif;color:#51584b;margin:0}
+.portfolio-intro>span{font:700 11px/1.5 'Space Grotesk',sans-serif;letter-spacing:.05em;white-space:nowrap}
+.portfolio-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px 22px;align-items:stretch}
+.portfolio-card{min-width:0}
+.portfolio-link{display:flex;flex-direction:column;height:100%;color:var(--ink);text-decoration:none;border-radius:5px}
+.portfolio-link:focus-visible{outline:3px solid #2584c3;outline-offset:5px}
+.portfolio-shot{padding:6px;background:var(--ink);border:1px solid var(--stroke);border-radius:5px;overflow:hidden;transition:filter .2s ease}
+.portfolio-shot img{display:block;width:100%;height:auto;border-radius:2px}
+.portfolio-link:hover .portfolio-shot{filter:brightness(.94)}
+.portfolio-info{display:flex;flex-direction:column;flex:1;padding:15px 2px 0}
+.portfolio-kind{display:block;font:700 10px/1.4 'Space Grotesk',sans-serif;letter-spacing:.04em;text-transform:uppercase;color:#4d5647}
+.portfolio-info h3{font:700 clamp(23px,2.3vw,31px)/1.12 'Space Grotesk',sans-serif;letter-spacing:-.045em;margin:8px 0 10px;overflow-wrap:break-word}
+.portfolio-info p{font:400 13px/1.6 'DM Sans',sans-serif;color:#51584b;margin:0 0 14px;max-width:370px}
+.portfolio-visit{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:auto;padding-top:2px;font:700 12px/1.5 'Space Grotesk',sans-serif}
+.portfolio-visit>span{font-size:17px;flex-shrink:0}
+@media(max-width:960px){.portfolio-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 18px}.portfolio-intro{display:block}.portfolio-intro>span{display:block;margin-top:14px}}
+@media(max-width:620px){#proyectos{padding:64px 0}.portfolio-grid{gap:25px 13px}.portfolio-shot{padding:4px}.portfolio-info{padding:12px 1px 0}.portfolio-kind{font-size:9px;min-height:26px}.portfolio-info h3{font-size:20px;min-height:45px;margin:6px 0 8px}.portfolio-info p{font-size:12px;line-height:1.6;margin-bottom:12px}.portfolio-visit{font-size:11px;gap:5px}.portfolio-visit>span{font-size:15px}.portfolio-intro{margin-bottom:24px}.portfolio-intro p{font-size:13px}.portfolio-intro>span{font-size:10px}}
+@media(max-width:340px){.portfolio-grid{grid-template-columns:1fr}.portfolio-info h3{font-size:24px;min-height:0}.portfolio-kind{min-height:0}.portfolio-info p{font-size:13px}.portfolio-visit{font-size:12px}}
+@media(prefers-reduced-motion:reduce){.portfolio-shot{transition:none}}

@@ -39,7 +39,7 @@ No se compromete alojamiento ilimitado, integraciones gratuitas, soporte perpetu
 
 ## Proyectos visibles
 
-Se seleccionan seis proyectos por su relevancia y presentación actual. Kyomu, Estética Luna y Tropical Pulse están visibles al entrar. Un control nativo `details/summary`, cerrado inicialmente, muestra otros tres: Dýnamis, Monster White y PAASAU. El texto cambia entre «Ver 3 proyectos más» y «Ver menos proyectos» mediante CSS. Funciona sin JavaScript, permite teclado y reduce la extensión inicial del sitio. Las capturas adicionales usan carga diferida.
+Se muestran seis proyectos seleccionados en una sola cuadrícula visible, sin desplegables, carruseles ni botones para descubrir trabajos. El control anterior «Ver 3 proyectos más» pasó desapercibido para Steven; por eso Monster White y Dýnamis aparecen directamente junto con Kyomu en la primera fila de escritorio. El orden completo es Kyomu, Monster White, Dýnamis, Estética Luna, Tropical Pulse y PAASAU. Hay tres columnas en escritorio, dos en tableta y móvil de 390 px, y una en pantallas de 340 px o menos. Las tarjetas compactas conservan las capturas completas, una frase breve y la clasificación de cada proyecto. Ninguna tarjeta depende de una animación de aparición para hacerse visible.
 
 | Proyecto | Clasificación | Enlace |
 |---|---|---|
